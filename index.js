@@ -6,11 +6,14 @@ function guessTheLang(phrase) {
         const langCode = franc(phrase , {minLength: 3});
         if (langCode) {
             const language = langs.where("3",langCode);
-            console.log(language.name);
-            return
+            if (language) {
+                console.log(language.name);
+                return
+            }
         }
     }
     console.log('unknown phrase. Try something longer');
 }
 
-guessTheLang(process.argv[2])
+const input = process.argv[2]
+guessTheLang(input)
